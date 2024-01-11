@@ -1,10 +1,11 @@
 import Todoitems from "./Todoitems";
-const List = ({ todoitem})=>{
+const List = ({ todoitem ,onDeleteclick})=>{
     return (
         <>
          <div className="items-container">
-        <Todoitems todoName ="Buy milk" todoDate="24/08/2023"></Todoitems>
-        <Todoitems todoName ="Go to school" todoDate="24/08/2023"></Todoitems>
+         {todoitem.map((item)=>(
+           <Todoitems todoName ={item.name} todoDate={item.Date} onDeleteclick ={onDeleteclick}></Todoitems>
+         ))};
        </div>
        
         </>

@@ -1,18 +1,34 @@
+import { useState } from "react";
 
-
-function AddTodos(){
+function AddTodos({onNewItem}){
+  const [todoName, setTodoName] = useState("");
+  const [todoDate, setTodoDate]= useState("");
+  const handleNameChange = (event)=>{
+     setTodoName(event.target.value);
+  }
+  const handleDateChange = (event) =>{
+     setTodoDate(event.target.value);
+  }
+  const handleAddButtonClicked = ()=>{
+    onNewItem(todoName, todoDate);
+    setTodoName("");
+    setTodoDate("");
+     
+  }
     return(
     <>
       <div Class="container text-center">
         <div Class="row kg-row">
-          <div Class="col-4">
-            <input type="text" placeholder="enter todo items"></input>
+          <div Class="col-6 ">
+            <input type="text" placeholder="Enter todo items" value ={todoName} onChange={handleNameChange}></input>
           </div>
           <div Class="col-2">
-            <input type="date"></input> 
+            <input type="date" value ={todoDate} onChange={handleDateChange}></input> 
           </div>
           <div Class="col-2">
-          <button type="button" Class="btn btn-success kg-button">Add</button>
+          <button type="button" Class="btn btn-success kg-button" 
+            onClick={handleAddButtonClicked}
+          >Add</button>
           </div>
         </div>
         </div>
