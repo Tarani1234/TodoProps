@@ -4,7 +4,7 @@ const List = ({ todoitem ,onDeleteclick})=>{
         <>
          <div className="items-container">
          {todoitem.map((item)=>(
-           <Todoitems todoName ={item.name} todoDate={item.Date} onDeleteclick ={onDeleteclick}></Todoitems>
+           <Todoitems  key ={item.name} todoName ={item.name} todoDate={item.Date} onDeleteclick ={onDeleteclick}></Todoitems>
          ))};
        </div>
        
